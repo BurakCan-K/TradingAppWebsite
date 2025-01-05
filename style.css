@@ -139,9 +139,84 @@ section{
     background: var(--gradient);
 }
 
-
 .navbar .nav a i{
     display: none;
+}
+
+.home .flex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.home .flex .image{
+    flex:1 1 30rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.home .flex .image::before{
+    content: '';
+    position: absolute;
+    border-top: 0rem;
+    left: 59%;
+    height: 25rem;
+    width: 5rem;
+    background: var(--gradient);
+    z-index: -1;
+    animation: animate1 4s cubic-bezier(.29,1,.26,1.12) infinite;
+}
+
+.home .flex .image::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right:14%;
+    height: 25rem;
+    width: 5rem;
+    background: var(--gradient);
+    animation: animate2 4s cubic-bezier(.29,1,.26,1.12) infinite;
+}
+
+@keyframes animate1{
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes animate2{
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(-100%);
+    }
+}
+
+.home .flex .image img{
+    width: 29rem;
+}
+
+.home .flex .content{
+    flex:1 1 50rem;
+}
+
+.home .flex .content h3{
+    font-size: 4rem;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.home .flex .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: var(--light-white);
 }
 
 
@@ -196,6 +271,42 @@ section{
     body{
         padding-bottom: 7rem;
     }
+
+    .navbar{
+        bottom: 0;
+    }
+    
+    .navbar .nav{
+        border-bottom: 0;
+        border-left: 0;
+        border-right: 0;
+        box-shadow: none;
+        border-radius: 0;
+        padding: .5rem;
+        width: 100%;
+    }
+
+    .navbar .nav a{ 
+        padding: .5rem;
+    }
+
+    .navbar .nav a span{
+        font-size: 1.5rem;
+     }
+
+    .navbar .nav a i{
+        display: block;
+        font-size: 2.25rem;
+        margin-bottom: .5rem;
+     }
+     
+     .navbar .nav a:hover {
+        background: none;
+     }
+
+     .navbar .nav a:hover span{
+        color: coral;
+     }
 
 }
 
