@@ -25,7 +25,7 @@ TradeApp is a modern, responsive web application designed for users to start tra
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/TradeApp.git
+    git clone https://github.com/BurakCan-K/TradeAppWebsite.git
     ```
 
 2. Open the project directory:
