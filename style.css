@@ -151,30 +151,42 @@ section{
 }
 
 .home .flex .image{
+    position: relative;
     flex:1 1 30rem;
-    text-align: center;
     overflow: hidden;
+    z-index: -1;
+}
+
+.home .flex .image img{
+    width: 70%;
+    margin-left:15% ;
+    border-radius: 2%;
 }
 
 .home .flex .image::before{
     content: '';
     position: absolute;
-    border-top: 0rem;
-    left: 59%;
+    top: 0;
+    margin-top: 1rem;
+    left: 0;
     height: 25rem;
-    width: 5rem;
+    width: 4.5rem;
     background: var(--gradient);
     z-index: -1;
-    animation: animate1 4s cubic-bezier(.29,1,.26,1.12) infinite;
+    border-radius: 1rem;
+    animation: animate1 4s  cubic-bezier(.29,1,.26,1.12) infinite;
 }
 
 .home .flex .image::after{
     content: '';
     position: absolute;
     bottom: 0;
-    right:14%;
+    margin-bottom: 1rem;
+    right:0;
     height: 25rem;
-    width: 5rem;
+    width: 4.5rem;
+    z-index: -1;
+    border-radius: 1rem;
     background: var(--gradient);
     animation: animate2 4s cubic-bezier(.29,1,.26,1.12) infinite;
 }
@@ -197,9 +209,7 @@ section{
     }
 }
 
-.home .flex .image img{
-    width: 29rem;
-}
+
 
 .home .flex .content{
     flex:1 1 50rem;
@@ -218,6 +228,552 @@ section{
     padding: 1rem 0;
     color: var(--light-white);
 }
+
+.services .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.services .box-container .box{
+    text-align: center;
+    padding: 2.5rem 2
+    rem;
+    background-color: var(--bg-color);
+    border: var(--border);
+}
+
+.services .box-container .box i{
+    padding-top: 1.5rem;
+    font-size: 3rem;
+    color: var(--gradient);
+    background-clip: text;
+    color: turquoise;
+    margin-bottom: 1rem;
+}
+
+.services .box-container .box h3{
+    font-size: 2rem;
+    color: var(--white);
+    margin: .5rem 0;
+}
+
+.services .box-container .box p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: var(--light-white);
+}
+
+.about{
+    background: var(--bg-color);
+    border: var(--border);
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.about .flex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.about .flex .content{
+    flex:1 1 40rem;
+    border:var(--border);
+}
+
+.about .flex .content h3{
+    font-size: 4rem;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.about .flex .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: var(--light-white);
+}
+
+.about .flex .image{
+    display: flexbox;
+    flex:1 1 30rem;
+    text-align: center;
+    border:var(--border);
+}
+
+.about .flex .image img{
+    width: 100%;
+    border-radius: 1rem;
+    ;
+    border: var(--border);
+}
+
+.reviews .flex{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.reviews .flex .content{
+    flex: 1 1 40rem;
+}
+
+.reviews .flex .content h3{
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.reviews .flex .content p{
+    font-size: 1.6rem;
+    color: var(--light-white);
+    line-height: 1.8rem;
+    padding: 1rem 0;
+}
+
+.reviews .flex .content .controls{
+    margin-top: .5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.reviews .flex .content .controls div{
+    height: 5rem;
+    width: 5rem;
+    line-height: 4.9rem;
+    font-size: 2.5rem;
+    color: var(--white);
+    background: var(--bg-color);
+    text-align: center;
+    cursor: pointer;
+}
+.reviews .flex .content .controls div:hover{
+    background: var(--gradient);
+}
+
+.reviews .flex .slides-container{
+    flex:1 1 40rem;
+    perspective: 1000px;
+}
+
+.reviews .flex .slides-container .slide{
+    background: var(--bg-color);
+    padding: 2rem 2.5rem;
+    display: none;
+    transform-style: preserve-3d;
+    animation:slide .5s linear;
+}
+
+@keyframes slide{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+
+.reviews .flex .slides-container .slide.active{
+    display: block;
+}
+
+.reviews .flex .slides-container .slide > *{
+    animation: slideContent .3s linear .5s forwards;
+}
+
+@keyframes slideContent{
+    0%{
+        opacity: 0;
+        transform: scale(.5);
+    }
+}
+
+.reviews .flex .slides-container .slide .text{
+    font-size: 1.6rem;
+    color: var(--light-white);
+    line-height: 1.8rem;
+}
+
+.reviews .flex .slides-container .slide .user{
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: var(--border);
+}
+
+.reviews .flex .slides-container .slide .user img{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviews .flex .slides-container .slide .user h3{
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.reviews .flex .slides-container .slide .user .stars{
+    margin-top: .5rem;
+}
+
+.reviews .flex .slides-container .slide .user .stars i{
+    font-size: 1.5rem;
+    color: coral;
+}
+
+.reviews .flex .slides-container .slide .user .fa-quote-right{
+    font-size: 5rem;
+    color: transparent;
+    background: var(--gradient);
+    background-clip: text;
+    margin-left: auto;
+
+}
+
+.download{
+    background: var(--bg-color);
+    border: var(--border);
+}
+
+.download .flex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.download .flex .image{
+    flex: 1 1 40rem;
+}
+
+.download .flex .image img{
+    width: 100%;
+    height: 50rem;
+    object-fit: contain;
+}
+
+.download .flex .content{
+    flex: 1 1 40rem;
+}
+
+.download .flex .content h3{
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.download .flex .content p{
+    line-height: 1.8rem;
+    font-size: 1.6rem;
+    color: var(--light-white);
+    padding: .5rem 0;
+}
+
+.download .flex .content .links{
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.download .flex .content a{
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+   
+}
+
+.download .flex .content a i{
+    font-size: 2.5rem;
+    margin-right: .5rem;
+}
+
+.download .flex .content a:first-child{
+    background: var(--white);
+    color: var(--black);
+    border-radius: 5rem;
+    border: var(--border);
+}
+
+.download .flex .content a:first-child:hover{
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.download .flex .content a:last-child{
+    background: var(--bg-color);
+    color: var(--white);
+    border-radius: 5rem;
+    border: var(--border);
+}
+
+
+.download .flex .content a:last-child:hover{
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.download .flex .content a{
+    width: 100%;
+    text-align: center;
+}
+
+.pricing .toggle-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.pricing .toggle-buttons .button{
+    padding: 1rem;
+    width: 15rem;
+    font-size: 1.8rem;
+    color: var(--white);
+    border-radius: .5rem;
+    background: var(--bg-color);
+    text-align: center;
+    cursor: pointer;
+}
+
+.pricing .toggle-buttons .button.active,
+
+.pricing .toggle-buttons .button:hover{
+    background: var(--gradient);
+}
+
+.pricing .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.pricing .box-container .box{
+    text-align: center;
+    padding: 2rem 2.5rem;
+    background-color: var(--bg-color);
+    border: var(--border);
+}
+
+.pricing .box-container .box h3{
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.pricing .box-container .box .price{
+    animation: price .2s linear;
+    transform-origin: top;
+}
+
+@keyframes price{
+    0%{
+        transform: scaleY(.5);
+    }
+}
+
+.pricing .box-container .box .price.year{
+    display: none;
+}
+
+.pricing .box-container .box .price span:first-child{
+    font-size: 2.5rem;
+    color: coral;
+    font-weight: 600;
+}
+
+.pricing .box-container .box .price span:last-child{
+    font-size: 1.5rem;
+    color: var(--light-white);
+}
+
+.pricing .box-container .box .list{
+    margin-bottom: 1rem; 
+    border-bottom: var(--border);
+    padding-top: 1rem;
+}
+
+.pricing .box-container .box .list p{
+    text-align: start;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+}
+
+.pricing .box-container .box .list p i{
+    margin-right: 1rem;
+}
+
+.pricing .box-container .box .list p .fa-check{
+    font-size: 2rem;
+    margin-right: .5rem;
+    color: limegreen;
+}
+
+.pricing .box-container .box .list p .fa-circle-check{
+    font-size: 2rem;
+    margin-right: .5rem;
+    color: limegreen;
+}
+
+.pricing .box-container .box .list p .fa-circle-xmark{
+    font-size: 2rem;
+    margin-right: .5rem;
+    color: red;
+}
+
+.pricing .box-container .box .btn{
+    width: 100%;
+    text-align: center;
+    border-radius: .5rem;
+}
+
+.pricing .box-container .box:nth-child(2){
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}  
+
+.newsletter{
+    background: var(--bg-color);
+}
+
+.newsletter .news{
+    text-align: center;
+}
+
+.newsletter .news h3{
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.newsletter .news p{
+    line-height: 1.8;
+    font-size: 1.6rem;
+    color: var(--light-white);
+    width: 50rem;
+    margin: 1rem auto;
+}
+
+.newsletter .news form{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.newsletter .news form .input{
+    border-radius:5rem ;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.8rem;
+    color: var(--white);
+    border: var(--border);
+    background-color: var(--black);
+    width: 30rem;
+    text-transform: none;
+}
+
+.newsletter .news form .input::placeholder{
+    text-transform: capitalize;
+} 
+
+.newsletter .news form .btn{
+    margin-top: 0;
+}
+
+.brands{
+    overflow: hidden;
+    display: flex;
+    gap:10rem;
+}
+
+.brands .brands-container{
+    display: flex;
+    gap:10rem;
+    animation: brands 10s linear infinite;
+}
+
+@keyframes brands{
+    0%{
+        transform:translateX(0%);
+    }
+    0%{
+        transform:translateX(-100%)
+    }
+}
+
+.brands:hover .brands-container{
+    animation-play-state: paused;
+}
+
+.brands .brands-container img{
+    height: 3.5rem;
+    
+}
+
+.brands .brands-container img,
+
+.footer .box-container{
+    display: grid;
+    border-color: var(--light-white);
+    grid-template-columns:repeat(auto-fit,27rem) ;
+    gap:2rem;
+    margin-left:15%;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.footer .box-container .box h3{
+    font-size: 2rem ;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.footer .box-container .box a{
+    font-size: 1.8rem;
+    color: coral;
+    display: block;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a i {
+    color:var(--light-white);
+    margin-right: .5 rem;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 1rem;
+}
+
+.footer .box-container .box a:hover{
+    color: var(--white);
+}
+
+.footer .credit{
+    padding: 3rem 2rem;
+    border-top: var(--border);
+    text-align: center;
+    font-size: 2rem;
+    color:var(--light-white);
+}
+
+.footer .credit span{
+    color: transparent;
+    background: var(--gradient);
+    background-clip: text;
+}
+
+
 
 
 
@@ -264,6 +820,24 @@ section{
     html{
         font-size: 50%;
     }
+
+    .reviews .flex .content h3{
+        font-size: 2.5rem;
+    }
+
+    .download .flex .content h3{
+        font-size: 2.5rem;
+    }
+
+    .download .flex .content a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .newsletter .news form .input{
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 768px){
@@ -308,9 +882,21 @@ section{
         color: coral;
      }
 
+     .home .flex .content h3{
+        font-size: 2.5rem;
+    }
+
 }
 
 @media (max-width: 450px){
+    
+    html{
+        font-size: 45%;
+    }
+
+    .reviews .flex .slides-container .slide .user h3{
+        font-size: 2rem;
+    }
     
    
 }
